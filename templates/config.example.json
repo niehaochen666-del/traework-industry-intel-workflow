@@ -1,0 +1,24 @@
+{
+  "_comment": "这是配置示例文件，实际使用时请复制为 config.json 并填入你的值，所有敏感信息通过环境变量读取，不要硬编码",
+  "industry_name": "你的行业名称，例如：新能源商用车",
+  "tag_rules": {
+    "政策环境": "政策|法规|意见|规划|准入|补贴|标准|通知|监管",
+    "技术趋势": "研发|突破|专利|工艺|材料|架构|能效|技术|创新",
+    "竞争格局": "厂商|布局|战略|并购|份额|交付|投产|合作|上市",
+    "市场动态": "销量|行情|报价|需求|出口|供应链|指数|数据",
+    "出海动态": "海外|出口|全球化|国际|东南亚|欧洲|北美|本地化"
+  },
+  "schedule": {
+    "daily_push_time": "10:00",
+    "daily_report_time": "18:00",
+    "weekly_report_time": "17:00",
+    "weekly_report_day": "friday"
+  },
+  "feishu_config": {
+    "_note": "以下所有值均通过环境变量读取，不要在这里填写真实值",
+    "app_id": "${FEISHU_APP_ID}",
+    "app_secret": "${FEISHU_APP_SECRET}",
+    "bitable_app_token": "${FEISHU_BITABLE_APP_TOKEN}",
+    "webhook_url": "${FEISHU_WEBHOOK_URL}"
+  }
+}
