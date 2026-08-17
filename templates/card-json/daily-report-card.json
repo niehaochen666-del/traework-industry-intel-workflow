@@ -1,0 +1,28 @@
+{
+  "msg_type": "interactive",
+  "card": {
+    "config": { "wide_screen_mode": true },
+    "header": {
+      "template": "blue",
+      "title": { "tag": "plain_text", "content": "【行业情报日报】今日动态与核心洞察" },
+      "subtitle": { "tag": "plain_text", "content": "AI 生成初稿 · 待分析师复核" }
+    },
+    "elements": [
+      { "tag": "div", "text": { "tag": "lark_md", "content": "**一、市场动态与热点**\n{{市场动态内容}}" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "**二、竞品与战略动向**\n{{竞品动向内容}} [来源 ↗]({{竞品来源链接}})" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "**三、政策与标准规范**\n{{政策内容}} [来源 ↗]({{政策来源链接}})" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "**四、技术与前沿观察**\n{{技术内容}} [来源 ↗]({{技术来源链接}})" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "**五、分析师要点洞察**\n⚡️ **研判短评**：{{研判短评}}" } },
+      {
+        "tag": "note",
+        "elements": [
+          { "tag": "lark_md", "content": "📌 本报告基于今日 **{{今日入库条数}}** 条真实入库记录生成 ｜ [全文已自动归档 ↗]({{归档链接}})" }
+        ]
+      }
+    ]
+  }
+}

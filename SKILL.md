@@ -33,6 +33,31 @@
 请引导我完成配置。
 ```
 
+## 分步引导流程
+
+TRAE Work 会按以下 6 步引导你完成配置，每一步都会先输出方案、等待你确认后再执行：
+
+| 步骤 | 动作 | 对应资产 |
+|:---|:---|:---|
+| 1 | 确认信息源合规：逐项核对信息源均为已授权或公开可访问 | 合规声明 |
+| 2 | 配置敏感参数：引导你把 Webhook、App Token 等写入环境变量 | templates/config.example.json |
+| 3 | 创建多维表格：按 schema 一键建表或手动建表 | templates/bitable-schema.md / .json |
+| 4 | 配置增量任务：去重、清洗、打标、写入表格 | prompts/02-incremental-sync.md |
+| 5 | 配置群卡片推送：每天定时推送增量精选卡片 | templates/card-json/ |
+| 6 | 配置日报/周报任务：定时生成初稿并归档，人工复核后分发 | prompts/03、04 |
+
+### 需要用户提供的配置参数
+
+| 参数 | 说明 | 建议环境变量名 |
+|:---|:---|:---|
+| 目标行业与标签关键词库 | 决定打标规则，如「政策环境/技术趋势/竞争格局/市场动态」及各自关键词 | 无需环境变量，对话提供 |
+| 信息源清单 | 已授权或公开可访问的 RSS / 专栏 / 开放接口列表 | 无需环境变量，对话提供 |
+| 飞书群机器人 Webhook | 用于推送增量卡片与报告通知 | `FEISHU_WEBHOOK_URL` |
+| 多维表格 App Token | 「行业情报库」多维表格的访问凭证 | `BITABLE_APP_TOKEN` |
+| 推送与生成时间 | 默认 10:00 推送、18:00 日报、周五 17:00 周报，可自定义 | 无需环境变量，对话提供 |
+
+> ⚠️ 所有敏感参数一律通过环境变量注入，严禁写入正文、脚本、公开仓库或截图。
+
 ## 工作流说明
 
 ### 标准四段式流水线
@@ -60,7 +85,9 @@
 | 报告核验 | 日报周报分发前，人工核对事实、数据、来源链接 |
 | 敏感脱敏 | 对外分享时，确保企业内部信息已替换为占位符 |
 
-## Prompt 库位置
+## 资源索引
+
+### Prompt 库（prompts/）
 
 | 文件 | 用途 |
 |:---|:---|
@@ -69,6 +96,27 @@
 | 03-daily-report.md | 生成每日行业情报日报 |
 | 04-weekly-report.md | 生成每周行业趋势研判周报 |
 | 05-complex-task.md | 通用复杂任务先出方案再执行 |
+
+### 模板（templates/）
+
+| 文件 | 用途 |
+|:---|:---|
+| bitable-schema.md | 三张多维表格的字段设计说明（人工建表参考） |
+| bitable-schema.json | 机器可读版 schema，供 TRAE Work 一键自动建表 |
+| config.example.json | 配置模板（全部使用占位符，真实值走环境变量） |
+| card-templates.md | 三类消息卡片的样式参考与设计原则 |
+| card-json/daily-push-card.json | 每日增量推送卡片 JSON，可直接通过 Webhook 发送 |
+| card-json/daily-report-card.json | 每日日报通知卡片 JSON，可直接通过 Webhook 发送 |
+| card-json/weekly-report-card.json | 每周周报通知卡片 JSON，可直接通过 Webhook 发送 |
+
+### 文档（docs/）
+
+| 文件 | 用途 |
+|:---|:---|
+| best-practices.md | 最佳实践建议 |
+| faq.md | 常见问题与故障排查 |
+
+> 遇到问题先看 docs/faq.md；仍未解决时，把现象原样描述给 TRAE Work，由它定位并修复。
 
 ## 合规声明
 

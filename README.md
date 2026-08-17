@@ -44,8 +44,13 @@ traework-industry-intel-workflow/
 ├── LICENSE
 ├── prompts/     # 5条核心Prompt模板
 ├── templates/   # 配置模板
+│   ├── bitable-schema.md    # 多维表格字段设计（人工建表参考）
+│   ├── bitable-schema.json  # 机器可读schema，支持一键自动建表
+│   ├── config.example.json  # 配置模板（占位符）
+│   ├── card-templates.md    # 卡片样式参考
+│   └── card-json/           # 3张即用飞书卡片JSON（Webhook直发）
 ├── examples/    # 使用示例
-└── docs/        # 详细文档
+└── docs/        # 详细文档（最佳实践 + FAQ故障排查）
 ```
 
 ## 📄 许可证

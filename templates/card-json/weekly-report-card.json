@@ -1,0 +1,26 @@
+{
+  "msg_type": "interactive",
+  "card": {
+    "config": { "wide_screen_mode": true },
+    "header": {
+      "template": "purple",
+      "title": { "tag": "plain_text", "content": "【行业情报周报】本周发展态势与策略研判" },
+      "subtitle": { "tag": "plain_text", "content": "AI 生成初稿 · 待分析师复核 · {{周次}}" }
+    },
+    "elements": [
+      { "tag": "div", "text": { "tag": "lark_md", "content": "📊 **【本周数据焦点】** 本周共监测录入 **{{本周入库条数}}** 篇资讯，政策相关占比 {{政策占比}}，技术创新占比 {{技术占比}}，出海动态占比 {{出海占比}}。" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "🌍 **【出海与全球化】** {{出海动态内容}} [依据 ↗]({{出海依据链接}})" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "🏢 **【竞争格局演变】** {{竞争格局内容}} [依据 ↗]({{竞争依据链接}})" } },
+      { "tag": "hr" },
+      { "tag": "div", "text": { "tag": "lark_md", "content": "💡 **【策略启示与建议】**\n1. {{策略建议1}}\n2. {{策略建议2}}" } },
+      {
+        "tag": "note",
+        "elements": [
+          { "tag": "lark_md", "content": "📌 [本周报全文已自动归档 ↗]({{归档链接}})" }
+        ]
+      }
+    ]
+  }
+}
